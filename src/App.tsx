@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/lazy";
+import "react-toastify/dist/ReactToastify.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
