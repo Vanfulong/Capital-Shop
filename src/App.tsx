@@ -5,14 +5,16 @@ import "swiper/css/navigation";
 import "swiper/css/lazy";
 import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import ProductDetail from "./pages/Product Details/ProductDetail";
 import Loader from "./components/Loader/Loader";
-import Category from "./pages/Category/Category";
-import Cart from "./pages/Cart/Cart";
-import Login from "./pages/Login/Login";
-import Register from "./pages/Login/Register";
 import { ToastContainer } from "react-toastify";
 const Home = lazy(() => import("./pages/Home/Home"));
+const Cart = lazy(() => import("./pages/Cart/Cart"));
+const Category = lazy(() => import("./pages/Category/Category"));
+const ProductDetail = lazy(
+  () => import("./pages/Product Details/ProductDetail")
+);
+const Register = lazy(() => import("./pages/Login/Register"));
+const Login = lazy(() => import("./pages/Login/Login"));
 function App() {
   const RequireLogin = ({ children }: { children: any }) => {
     if (localStorage.getItem("loginSuccess") === "true") {
@@ -38,14 +40,27 @@ function App() {
             </Suspense>
           }
         ></Route>
-        <Route path="/product/:id" element={<ProductDetail />}></Route>
-        <Route path="/category/:id" element={<Category />}></Route>
+        <Route
+          path="/product/:id"
+          element={
+            <Suspense fallback={<Loader />}>
+              <ProductDetail />
+            </Suspense>
+          }
+        ></Route>
+        <Route
+          path="/category/:id"
+          element={
+            <Suspense fallback={<Loader />}>
+              <Category />
+            </Suspense>
+          }
+        ></Route>
         <Route
           path="/login"
           element={
             <RequireLogin>
-              {" "}
-              <Login />{" "}
+              <Login />
             </RequireLogin>
           }
         ></Route>
