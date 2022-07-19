@@ -123,20 +123,24 @@ const CartPage = () => {
           </div>
         </div>
       ))}
-      <div className="flex w-full justify-end px-20 pt-20">
-        <button
-          onClick={() => {
-            dispatch(CartSlice.actions.checkout());
-            toast.success("Payment is Successful.", {
-              position: toast.POSITION.TOP_RIGHT,
-              autoClose: 3000,
-            });
-          }}
-          className="px-6 py-3 rounded-md bg-primary cursor-pointer text-white "
-        >
-          Checkout
-        </button>
-      </div>
+      {item.length !== 0 ? (
+        <div className="flex w-full justify-end px-20 pt-20">
+          <button
+            onClick={() => {
+              dispatch(CartSlice.actions.checkout());
+              toast.success("Payment is Successful.", {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 3000,
+              });
+            }}
+            className="px-6 py-3 rounded-md bg-primary cursor-pointer text-white "
+          >
+            Checkout
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
