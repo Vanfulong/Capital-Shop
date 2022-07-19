@@ -27,6 +27,7 @@ const tablist: Array<ItemTabLish> = [
   },
 ];
 const ProductDetail = () => {
+  document.title = "Capitl Shop - ProductDetail";
   const dispatch = useDispatch();
   const [itemActive, setItemActive] = useState<number>(1);
   const [Product, setProduct] = useState<Product>({
