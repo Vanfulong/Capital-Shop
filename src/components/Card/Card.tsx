@@ -16,6 +16,10 @@ const Card = (props: { product: Product }) => {
           quantity: 1,
         })
       );
+      toast.success("Add to cart successfully!", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 3000,
+      });
     } else {
       toast.error("Please login or register account to perform this action.", {
         position: toast.POSITION.TOP_RIGHT,

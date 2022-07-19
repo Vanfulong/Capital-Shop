@@ -77,7 +77,7 @@ const Register = () => {
             </label>
             <input
               id="password"
-              type="text"
+              type="password"
               value={formik.values.password}
               onChange={formik.handleChange}
               placeholder="Password"
