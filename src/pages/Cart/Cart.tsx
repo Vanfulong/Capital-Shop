@@ -5,6 +5,7 @@ import axiosClient from "../../apis/axiosClient";
 import { useEffect, useState } from "react";
 import CartSlice from "../../components/Cart/CartSlice";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 interface CartItem {
   id: number;
   name: string;
@@ -126,7 +127,10 @@ const CartPage = () => {
         <button
           onClick={() => {
             dispatch(CartSlice.actions.checkout());
-            alert("Success");
+            toast.success("Payment is Successful.", {
+              position: toast.POSITION.TOP_RIGHT,
+              autoClose: 3000,
+            });
           }}
           className="px-6 py-3 rounded-md bg-primary cursor-pointer text-white "
         >
