@@ -67,7 +67,7 @@ const Home = () => {
           lazy={true}
           modules={[Navigation, Autoplay, Lazy]}
           autoplay={{
-            delay: 4000,
+            delay: 8000,
             disableOnInteraction: false,
           }}
           className="mySwiper"
@@ -105,7 +105,7 @@ const Home = () => {
           rewind={true}
           modules={[Navigation, Autoplay]}
           autoplay={{
-            delay: 4000,
+            delay: 8000,
             disableOnInteraction: false,
           }}
           className="mySwiper"
