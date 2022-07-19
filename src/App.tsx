@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Loader from "./components/Loader/Loader";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 const Home = lazy(() => import("./pages/Home/Home"));
 const Cart = lazy(() => import("./pages/Cart/Cart"));
 const Category = lazy(() => import("./pages/Category/Category"));
@@ -19,7 +19,10 @@ const Login = lazy(() => import("./pages/Login/Login"));
 function App() {
   const RequireLogin = ({ children }: { children: any }) => {
     if (localStorage.getItem("loginSuccess") === "true") {
-      alert("Vui long dang xuat truoc khi dang nhap/dang ki tai khoan khac");
+      toast.error("Please log out .", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 3000,
+      });
     }
     return localStorage.getItem("loginSuccess") === "true" ? (
       <Navigate to="/home" />
