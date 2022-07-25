@@ -52,7 +52,7 @@ const CartPage = () => {
           <p className="pl-3 text-[#74706B] text-sm ">Cart</p>
         </div>
       </div>
-      <div className="px-20 py-6 grid grid-cols-12 bg-white">
+      <div className="px-2 md:px-20 py-6 grid grid-cols-12 bg-white">
         <div className="col-span-7 text-sm font-medium">
           <p>Product</p>
         </div>
@@ -76,22 +76,22 @@ const CartPage = () => {
       {items.map((item) => (
         <div
           key={item.id}
-          className="mx-20 grid grid-cols-12 bg-white py-4 border-b border-gray-200"
+          className="mx-2 md:mx-20 grid grid-cols-12 bg-white py-4 border-b border-gray-200"
         >
-          <div className="col-span-7 text-base font-normal pl-3 border-l border-gray-200 flex items-center">
+          <div className="col-span-7 text-sm md:text-base font-normal md:pl-3 border-l border-gray-200 flex items-center">
             <p>{item.name}</p>
           </div>
-          <div className="col-span-2  text-base font-normal flex items-center">
+          <div className="col-span-2  text-sm md:text-base font-normal flex items-center">
             <p>{item.price + "$"}</p>
           </div>
-          <div className="col-span-2 text-base font-normal flex max-h-[80%]">
+          <div className="col-span-2 text-sm md:text-base font-normal flex max-h-[80%]">
             <div className="border border-gray-300 min-w-[50%] flex items-center justify-center">
               {item.quantity}
             </div>
 
             <div className="max-w-[50%] flex flex-col ">
               <button
-                className="border border-gray-300 min-h-[50%] px-4"
+                className="border border-gray-300 min-h-[50%] md:px-4"
                 onClick={(e) => {
                   dispatch(
                     CartSlice.actions.addCart({
@@ -104,7 +104,7 @@ const CartPage = () => {
                 +
               </button>
               <button
-                className="border border-gray-300 min-h-[50%] px-4"
+                className="border border-gray-300 min-h-[50%] md:px-4"
                 onClick={() => {
                   dispatch(
                     CartSlice.actions.delCart({
@@ -118,13 +118,13 @@ const CartPage = () => {
               </button>
             </div>
           </div>
-          <div className="col-span-1  text-base font-normal flex items-center">
+          <div className="col-span-1 text-sm md:text-base font-normal flex items-center">
             <p>{item.quantity * item.price + "$"}</p>
           </div>
         </div>
       ))}
       {item.length !== 0 ? (
-        <div className="flex w-full justify-end px-20 pt-20">
+        <div className="flex w-full justify-end md:px-20 pt-7 md:pt-20">
           <button
             onClick={() => {
               dispatch(CartSlice.actions.checkout());

@@ -5,10 +5,10 @@ const CategoryBanner = () => {
   const navigate = useNavigate();
   return (
     <>
-      <p className="text-3xl font-jost text-center pt-6 font-medium">
+      <p className="text-xl md:text-3xl font-jost text-center pt-6 font-medium">
         Category
       </p>
-      <div className="md:px-20 pt-7 pb-44 grid grid-cols-4 font-jost gap-5 ">
+      <div className=" px-2 md:px-20 pt-7 pb-44 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 font-jost gap-5 ">
         {Category.map((item) => (
           <div
             className={`${
@@ -24,8 +24,8 @@ const CategoryBanner = () => {
               alt={item.name}
               className="group-hover:scale-110 transition-all duration-500"
             />
-            <div className="absolute w-full p-1 flex flex-col items-center justify-center bottom-0 z-40 group-hover:bottom-10 transition-all duration-500">
-              <p className="font-bold text-2xl mb-4 text-center cursor-pointer text-white">
+            <div className="absolute w-full p-1 flex flex-col items-center justify-center bottom-0 z-40 group-hover:bottom-3 md:group-hover:bottom-10 transition-all duration-500">
+              <p className="font-bold text-lg md:text-2xl mb-4 text-center cursor-pointer text-white">
                 {item.name}
               </p>
               <p className="text-center cursor-pointer opacity-0 text-base text-[#cebd9c] p-[1px]  border-b hover:scale-x-110 group-hover:opacity-100 transition-all duration-300">

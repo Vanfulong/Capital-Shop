@@ -38,7 +38,7 @@ const Header = () => {
   console.log(LoginSuccess);
   return (
     <div className="font-jost">
-      <div className="md:px-20 py-3 border-b border-gray-200 flex flex-row justify-between text-sm transition-all ">
+      <div className="hidden md:flex  md:px-20 py-3 border-b border-gray-200 flex-row justify-between text-sm transition-all ">
         <div className="flex gap-8">
           <p className="hover:text-primary cursor-pointer">About Us</p>
           <p className="hover:text-primary cursor-pointer">Privacy</p>
@@ -74,18 +74,18 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className=" md:px-20 bg-slate-50 flex justify-between items-center transition-all">
+      <div className="px-2 md:px-20 bg-slate-50 flex justify-between items-center transition-all">
         <div>
           <Link to="/home">
-            <img src={Logo} alt="" />
+            <img src={Logo} alt="" className="h-9" />
           </Link>
         </div>
-        <div className="flex flex-row">
+        <div className="hidden md:flex flex-col md:flex-row max-w-full">
           {Category.map((item) => (
             <Link
               to={`category/${item.id}`}
               key={item.id}
-              className="p-6 text-base font-bold cursor-pointer hover:text-primary"
+              className="md:p-6 text-base font-bold cursor-pointer hover:text-primary"
             >
               {item.name}
             </Link>
@@ -124,7 +124,7 @@ const Header = () => {
             )}
           </div>
 
-          <Link to="/cart" className="relative p-4">
+          <Link to="/cart" className="relative ml-1 md:p-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6 hover:text-primary cursor-pointer"
@@ -142,7 +142,7 @@ const Header = () => {
             <div
               className={`${
                 quantity === 0 ? "hidden" : ""
-              } absolute rounded-full bg-red-500 h-6 w-6  top-0 text-white font-medium right-0 justify-center items-center flex text-xs`}
+              } absolute rounded-full bg-red-500 h-3 w-3 md:h-6 md:w-6  top-0 text-white font-medium right-0 justify-center items-center flex text-xs`}
             >
               {quantity}
             </div>

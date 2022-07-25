@@ -14,6 +14,7 @@ const Delivery = require("../../assets/images/services1.png");
 const Secure = require("../../assets/images/services2.png");
 const Money = require("../../assets/images/services3.png");
 const Support = require("../../assets/images/services4.png");
+
 const Home = () => {
   document.title = "Capital Shop";
   const [itemActive, setItemActive] = useState<number>(1);
@@ -36,12 +37,14 @@ const Home = () => {
     <div className="font-jost">
       <Hero />
       <CategoryBanner />
-      <div className="md:px-20">
-        <div className="flex flex-row justify-between items-center border-b border-gray-300 mb-9">
+      <div className="px-2 md:px-20">
+        <div className="flex flex-row justify-between items-center border-b border-gray-300 md:mb-9">
           <div>
-            <p className="text-3xl font-medium pb-4">Trending This Week</p>
+            <p className="text-xl md:text-3xl font-medium pb-4">
+              Trending This Week
+            </p>
           </div>
-          <div className="grid grid-cols-4 gap-5 ">
+          <div className="hidden md:grid grid-cols-4 gap-5 ">
             {Category.map((item) => (
               <button
                 className={`${item.id === 5 ? "hidden" : ""} ${
@@ -60,6 +63,19 @@ const Home = () => {
       </div>
       <div className="md:px-20">
         <Swiper
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+            },
+            // when window width is >= 640px
+            640: {
+              slidesPerView: 3,
+            },
+            // when window width is >= 768px
+            768: {
+              slidesPerView: 4,
+            },
+          }}
           slidesPerView={4}
           navigation={true}
           spaceBetween={10}
@@ -81,9 +97,11 @@ const Home = () => {
           ))}
         </Swiper>
       </div>
-      <div className="mt-10 bg-[#f3ead8] p-20 flex flex-col items-center justify-center">
-        <p className="text-3xl font-semibold">Customer Testimonial</p>
-        <p className="text-2xl font-normal md:px-[25%] text-center mt-10 mb-6">
+      <div className="mt-10 bg-[#f3ead8] px-2 py-6 md:p-20 flex flex-col items-center justify-center">
+        <p className="text-xl md:text-3xl font-semibold">
+          Customer Testimonial
+        </p>
+        <p className="text-lg md:text-2xl font-normal md:px-[25%] text-center mt-3 md:mt-10 mb-6">
           Everybody is different, which is why we offer styles for every body.
           Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos
           facilis neque nulla earum.
@@ -96,9 +114,24 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="md:px-20 py-10">
-        <p className="text-3xl font-bold text-center">You May Like</p>
+      <div className="px-2 md:px-20 py-10">
+        <p className="text-xl md:text-3xl font-bold text-center">
+          You May Like
+        </p>
         <Swiper
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+            },
+            // when window width is >= 640px
+            640: {
+              slidesPerView: 3,
+            },
+            // when window width is >= 768px
+            768: {
+              slidesPerView: 4,
+            },
+          }}
           slidesPerView={4}
           navigation={true}
           spaceBetween={10}
@@ -119,32 +152,38 @@ const Home = () => {
           ))}
         </Swiper>
       </div>
-      <div className="grid grid-cols-4 md:px-20 py-32 bg-[#f6f6f6] ">
+      <div className="grid grid-cols-2 md:grid-cols-4 px-2 md:px-20 py-32 bg-[#f6f6f6] ">
         <div className="grid-cols-1 flex flex-col items-center">
           <img src={Delivery} alt="" />
-          <p className="text-xl font-medium mt-6">Fast & Free Delivery</p>
-          <p className="text-base font-normal text-[#57667e] mt-2">
+          <p className="text-base md:text-xl font-medium mt-6">
+            Fast & Free Delivery
+          </p>
+          <p className="text-sm md:text-base font-normal text-[#57667e] mt-2">
             Free delivery on all orders
           </p>
         </div>
         <div className="grid-cols-1 flex flex-col items-center">
           <img src={Secure} alt="" />
-          <p className="text-xl font-medium mt-6">Secure Payment</p>
-          <p className="text-base font-normal text-[#57667e] mt-2">
+          <p className="text-base md:text-xl font-medium mt-6">
+            Secure Payment
+          </p>
+          <p className="text-sm md:text-base font-normal text-[#57667e] mt-2">
             Free delivery on all orders
           </p>
         </div>
         <div className="grid-cols-1 flex flex-col items-center">
           <img src={Money} alt="" />
-          <p className="text-xl font-medium mt-6">Money Back Guarantee</p>
-          <p className="text-base font-normal text-[#57667e] mt-2">
+          <p className="text-base md:text-xl font-medium mt-6">Money Back</p>
+          <p className="text-sm md:text-base font-normal text-[#57667e] mt-2">
             Free delivery on all orders
           </p>
         </div>
         <div className="grid-cols-1 flex flex-col items-center">
           <img src={Support} alt="" />
-          <p className="text-xl font-medium mt-6">Online Support</p>
-          <p className="text-base font-normal text-[#57667e] mt-2">
+          <p className="text-base md:text-xl font-medium mt-6">
+            Online Support
+          </p>
+          <p className="text-sm md:text-base font-normal text-[#57667e] mt-2">
             Free delivery on all orders
           </p>
         </div>

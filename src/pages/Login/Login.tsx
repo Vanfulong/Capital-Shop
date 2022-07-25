@@ -40,8 +40,8 @@ const Login = () => {
   });
   return (
     <div className="w-full">
-      <div className="px-40 py-20 font-jost">
-        <div className="shadow-2xl px-10 py-20 max-w-[60%]  flex flex-col m-auto">
+      <div className="px-2 md:px-40 py-6 md:py-20 font-jost">
+        <div className="shadow-2xl px-10 py-20 md:max-w-[60%]  flex flex-col m-auto">
           <p className="text-center text-3xl font-semibold">Login</p>
           <p className=" text-center text-base font-normal mt-5">
             Enter Login details to get access
