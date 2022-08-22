@@ -105,7 +105,6 @@ const CategoryPage = () => {
             <div
               onClick={() => {
                 setReloadData((prep) => prep + 1);
-                console.log(reloadData);
               }}
               className="relative max-w-max px-10 py-2.5 overflow-hidden group bg-primary hover:bg-gradient-to-r hover:from-primary hover:to-primary text-white hover:ring-2 hover:ring-offset-2 hover:bg-primary cursor-pointer flex mx-auto my-6 rounded-full transition-all ease-out duration-300"
             >

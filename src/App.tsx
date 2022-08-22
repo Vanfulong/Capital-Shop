@@ -64,17 +64,21 @@ function App() {
         <Route
           path="/login"
           element={
-            <RequireLogin>
-              <Login />
-            </RequireLogin>
+            <Suspense fallback={<Loader />}>
+              <RequireLogin>
+                <Login />
+              </RequireLogin>
+            </Suspense>
           }
         ></Route>
         <Route
           path="/register"
           element={
-            <RequireLogin>
-              <Register />
-            </RequireLogin>
+            <Suspense fallback={<Loader />}>
+              <RequireLogin>
+                <Register />
+              </RequireLogin>
+            </Suspense>
           }
         ></Route>
         <Route

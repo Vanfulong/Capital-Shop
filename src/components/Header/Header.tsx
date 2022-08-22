@@ -35,7 +35,6 @@ const Header = () => {
   const quantity: number = useSelector(quantityItem);
   const LoginSuccess = useSelector(getLoginSuccess);
   const dispatch = useDispatch();
-  console.log(LoginSuccess);
   return (
     <div className="font-jost">
       <div className="hidden md:flex  md:px-20 py-3 border-b border-gray-200 flex-row justify-between text-sm transition-all ">
