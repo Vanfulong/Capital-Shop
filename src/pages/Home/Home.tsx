@@ -17,7 +17,7 @@ const Support = require("../../assets/images/services4.png");
 
 const Home = () => {
   document.title = "Capital Shop";
-  const [itemActive, setItemActive] = useState<number>(1);
+  const [itemActive, setItemActive] = useState<number>(118);
   const [Products, setProducts] = useState<Product[]>([product]);
   useEffect(() => {
     const test = async () => {
@@ -47,7 +47,7 @@ const Home = () => {
           <div className="hidden md:grid grid-cols-4 gap-5 ">
             {Category.map((item) => (
               <button
-                className={`${item.id === 5 ? "hidden" : ""} ${
+                className={`${item.id === 122 ? "hidden" : ""} ${
                   itemActive === item.id ? "border-b-4" : ""
                 } border-primary pb-4 text-center transition-all duration-200`}
                 key={item.id}
