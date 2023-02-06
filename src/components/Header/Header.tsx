@@ -6,27 +6,27 @@ import { getLoginSuccess, quantityItem } from "../../redux/selectors";
 const Logo = require("../../assets/images/logo.png");
 export const Category: Array<category> = [
   {
-    id: 1,
+    id: 118,
     name: "Clothes",
     image: "https://api.lorem.space/image/fashion?w=640&h=480&r=4972",
   },
   {
-    id: 2,
+    id: 119,
     name: "Electronics",
     image: "https://api.lorem.space/image/watch?w=640&h=480&r=4387",
   },
   {
-    id: 3,
+    id: 120,
     name: "Furniture",
     image: "https://api.lorem.space/image/furniture?w=640&h=480&r=1729",
   },
   {
-    id: 4,
+    id: 121,
     name: "Shoes",
     image: "https://api.lorem.space/image/shoes?w=640&h=480&r=6486",
   },
   {
-    id: 5,
+    id: 122,
     name: "Others",
     image: "https://api.lorem.space/image?w=640&h=480&r=3891",
   },
