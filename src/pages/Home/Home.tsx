@@ -1,6 +1,5 @@
 import CategoryBanner from "../../components/Category/Category";
 import Hero from "../../components/Hero/Hero";
-import { Category } from "../../components/Header/Header";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Lazy } from "swiper";
@@ -17,8 +16,18 @@ const Support = require("../../assets/images/services4.png");
 
 const Home = () => {
   document.title = "Capital Shop";
-  const [itemActive, setItemActive] = useState<number>(118);
   const [Products, setProducts] = useState<Product[]>([product]);
+  const [Category, setCategory] = useState<any>([])
+  const [itemActive, setItemActive] = useState<number>(Category[0]?.id || 0);
+  useEffect(()=>{
+    const getCategory = async () => {
+      const category:any[] = await axiosClient.get('categories?limit=4')
+      console.log(category)
+      setCategory(category)
+      setItemActive(category[0].id)
+    };
+    getCategory();
+  },[])
   useEffect(() => {
     const test = async () => {
       const res: Product[] = await axiosClient.get(
@@ -45,7 +54,7 @@ const Home = () => {
             </p>
           </div>
           <div className="hidden md:grid grid-cols-4 gap-5 ">
-            {Category.map((item) => (
+            {Category.map((item:any) => (
               <button
                 className={`${item.id === 122 ? "hidden" : ""} ${
                   itemActive === item.id ? "border-b-4" : ""

@@ -13,6 +13,7 @@ const CategoryPage = () => {
   const [toMoney, setToMoney] = useState<string>("");
   const [category, setCategory] = useState<string>(id!.toString());
   const [reloadData, setReloadData] = useState<string>("1");
+  const [Category, setCategorys] = useState<any>([])
   const [Product, setProduct] = useState<Product[]>([
     {
       id: 1,
@@ -24,6 +25,13 @@ const CategoryPage = () => {
     },
   ]);
   const location = useLocation();
+  useEffect(()=>{
+    const getCategory = async () => {
+      const category:any[] = await axiosClient.get('categories?limit=4')
+      setCategorys(category)
+    };
+    getCategory();
+  },[])
   useLayoutEffect(() => {
     document.documentElement.scrollTo(0, 0);
   }, [location.pathname]);
@@ -71,7 +79,7 @@ const CategoryPage = () => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm px-3 rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
           >
             <option value={"0"}>Choose a category</option>
-            {Category.map((item) => (
+            {Category.map((item:any) => (
               <option key={item.id} value={item.id}>
                 {item.name}
               </option>

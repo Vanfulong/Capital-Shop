@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Category } from "../Header/Header";
+import axiosClient from "../../apis/axiosClient";
 const CategoryBanner = () => {
+  const [Category, setCategorys] = useState<any>([])
   const navigate = useNavigate();
+  useEffect(()=>{
+    const getCategory = async () => {
+      const category:any[] = await axiosClient.get('categories?limit=4')
+      setCategorys(category)
+    };
+    getCategory();
+  },[])
   return (
     <>
       <p className="text-xl md:text-3xl font-jost text-center pt-6 font-medium">
         Category
       </p>
       <div className=" px-2 md:px-20 pt-7 pb-44 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 font-jost gap-5 ">
-        {Category.map((item) => (
+        {Category.map((item:any) => (
           <div
             className={`${
               item.id === 5 ? "hidden" : ""
